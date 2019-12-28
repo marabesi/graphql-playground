@@ -6,8 +6,6 @@ services:
     environment:
       - NODE_PORT=4002
     working_dir: /var/www/api
-    ports:
-      - 4002:4002
 
   webserver:
     image: nginx
