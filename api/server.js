@@ -7,7 +7,7 @@ const MongoClient = require('mongodb').MongoClient
 const root = require('./rootSchema')
 const app = express();
 
-const PORT = process.env.PORT || 4001
+const PORT = process.env.NODE_PORT || 4001
 const MONGO_URI = process.env.MONGO_URI
 
 const client = new MongoClient(MONGO_URI, { useNewUrlParser: true })

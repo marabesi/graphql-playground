@@ -28,6 +28,6 @@ docker run --name graph-api -d -it -p 4001:4001 -w /var/www/api -v $(pwd):/var/w
 The API exposes a few variables to configure it to, and they are as follows:
 
 | Key | Description |
-| PORT | Which port the API should run |
+| NODE_PORT | Which port the API should run |
 | MONGO_URI | Valid mongo URI string connection |
 | MONGO_COLLECTION | MongoDb collection to use in the GraphQL server | 
