@@ -1,9 +1,11 @@
 # GraphQL API
 
-This project uses nodejs, graphql and reactjs to build a product catalog. Users
-can query the api through the reactjs app and interact with the products available.
+This API is based on the GraphQL for nodejs, exposing a HTTP interface (graphiql)
+to interact with it.
 
-Docker is used as the development platform as well as the production solution.
+The following section describes how to setup the project using Docker. For a
+local environment setup without docker the recommended way is to use NPM and
+follow the script `dev` and `start` in the `package.json` file.
 
 # Docker setup
 
