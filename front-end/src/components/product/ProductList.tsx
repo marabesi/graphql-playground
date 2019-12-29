@@ -1,16 +1,30 @@
+// @ts-nocheck
 import React from 'react';
-import { useLazyLoadQuery, graphql } from 'react-relay/hooks';
+import { QueryRenderer } from 'react-relay';
+import { environment } from '../../relay';
 import { PRODUCTS_QUERY } from './QueriesProduct';
-import { QueriesProductQuery } from '../../__generated__/QueriesProductQuery.graphql';
 
-const ProductList: React.FC = props => {
-  const data = useLazyLoadQuery<QueriesProductQuery>(PRODUCTS_QUERY, {});
-
+const ProductListQuery: React.FC<{}> = () => {
   return (
-    <>
-      <h1>Product list</h1>
-    </>
+    <QueryRenderer
+      environment={environment}
+      query={PRODUCTS_QUERY}
+      variables={{}}
+      render={renderProductList}
+    />
   )
 };
 
-export default ProductList;
+export const renderProductList = ({ error, props }) => {
+  if (error) {
+    return <div style={{ color: 'red' }}>{error.message}</div>;
+  }
+
+  if (props) {
+    return <div>{props.title} is great!</div>;
+  }
+
+  return <div>Loading</div>;
+}
+
+export default ProductListQuery;

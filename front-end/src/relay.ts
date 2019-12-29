@@ -5,7 +5,7 @@ import {
   Store,
 } from 'relay-runtime';
 
-const GRAPHQL_HOST = process.env.GRAPHQL_HOST || '';
+const GRAPHQL_HOST = process.env.REACT_APP_GRAPHQL_HOST || '';
 
 function fetchQuery(
   operation: any,
