@@ -1,0 +1,31 @@
+schema {
+  query: Root
+}
+
+"""Represents a product within the system (Product root type)."""
+type ProductType {
+  """Product unique identifier"""
+  id: ID
+
+  """Short title, usually between 50 and 100 characters"""
+  title: String
+
+  """Category description"""
+  category_name: String
+
+  """Product image, following the pattern: //{domain}/**/*.{png, jpeg, gif}"""
+  image_link: String
+
+  """Product raw price"""
+  price: Float
+}
+
+type Root {
+  """Returns a collection of all products within the application."""
+  products: [ProductType]
+
+  """Find a product by id"""
+  product(id: ID): ProductType
+  productCount: Int
+}
+
