@@ -1,12 +1,17 @@
 /* tslint:disable */
-/* @relayHash 487917759edd3f510370e85c44a8043f */
+/* @relayHash dcc72b803c23f39769b911bbb62dbe2d */
 
 import { ConcreteRequest } from "relay-runtime";
-export type QueriesProductQueryVariables = {};
+export type QueriesProductQueryVariables = {
+    id: string;
+};
 export type QueriesProductQueryResponse = {
-    readonly products: ReadonlyArray<{
+    readonly product: {
+        readonly id: string | null;
         readonly title: string | null;
-    } | null> | null;
+        readonly image_link: string | null;
+        readonly price: number | null;
+    } | null;
 };
 export type QueriesProductQuery = {
     readonly response: QueriesProductQueryResponse;
@@ -16,22 +21,74 @@ export type QueriesProductQuery = {
 
 
 /*
-query QueriesProductQuery {
-  products {
-    title
+query QueriesProductQuery(
+  $id: ID!
+) {
+  product(id: $id) {
     id
+    title
+    image_link
+    price
   }
 }
 */
 
 const node: ConcreteRequest = (function(){
-var v0 = {
-  "kind": "ScalarField",
-  "alias": null,
-  "name": "title",
-  "args": null,
-  "storageKey": null
-};
+var v0 = [
+  {
+    "kind": "LocalArgument",
+    "name": "id",
+    "type": "ID!",
+    "defaultValue": null
+  }
+],
+v1 = [
+  {
+    "kind": "LinkedField",
+    "alias": null,
+    "name": "product",
+    "storageKey": null,
+    "args": [
+      {
+        "kind": "Variable",
+        "name": "id",
+        "variableName": "id"
+      }
+    ],
+    "concreteType": "ProductType",
+    "plural": false,
+    "selections": [
+      {
+        "kind": "ScalarField",
+        "alias": null,
+        "name": "id",
+        "args": null,
+        "storageKey": null
+      },
+      {
+        "kind": "ScalarField",
+        "alias": null,
+        "name": "title",
+        "args": null,
+        "storageKey": null
+      },
+      {
+        "kind": "ScalarField",
+        "alias": null,
+        "name": "image_link",
+        "args": null,
+        "storageKey": null
+      },
+      {
+        "kind": "ScalarField",
+        "alias": null,
+        "name": "price",
+        "args": null,
+        "storageKey": null
+      }
+    ]
+  }
+];
 return {
   "kind": "Request",
   "fragment": {
@@ -39,56 +96,23 @@ return {
     "name": "QueriesProductQuery",
     "type": "Root",
     "metadata": null,
-    "argumentDefinitions": [],
-    "selections": [
-      {
-        "kind": "LinkedField",
-        "alias": null,
-        "name": "products",
-        "storageKey": null,
-        "args": null,
-        "concreteType": "ProductType",
-        "plural": true,
-        "selections": [
-          (v0/*: any*/)
-        ]
-      }
-    ]
+    "argumentDefinitions": (v0/*: any*/),
+    "selections": (v1/*: any*/)
   },
   "operation": {
     "kind": "Operation",
     "name": "QueriesProductQuery",
-    "argumentDefinitions": [],
-    "selections": [
-      {
-        "kind": "LinkedField",
-        "alias": null,
-        "name": "products",
-        "storageKey": null,
-        "args": null,
-        "concreteType": "ProductType",
-        "plural": true,
-        "selections": [
-          (v0/*: any*/),
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "id",
-            "args": null,
-            "storageKey": null
-          }
-        ]
-      }
-    ]
+    "argumentDefinitions": (v0/*: any*/),
+    "selections": (v1/*: any*/)
   },
   "params": {
     "operationKind": "query",
     "name": "QueriesProductQuery",
     "id": null,
-    "text": "query QueriesProductQuery {\n  products {\n    title\n    id\n  }\n}\n",
+    "text": "query QueriesProductQuery(\n  $id: ID!\n) {\n  product(id: $id) {\n    id\n    title\n    image_link\n    price\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
-(node as any).hash = 'caa694ca39db2d2b0eb9ad4b088d3dd3';
+(node as any).hash = 'f44d7eb8424349082cd7cba598905f33';
 export default node;

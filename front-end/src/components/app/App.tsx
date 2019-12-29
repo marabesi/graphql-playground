@@ -7,7 +7,6 @@ const App: React.FC = () => {
   return (
     <RelayEnvironmentProvider environment={environment} >
       <div className="App">
-        <h2>test</h2>
         <ProductList />
       </div>
     </RelayEnvironmentProvider>

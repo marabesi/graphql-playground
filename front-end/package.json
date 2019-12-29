@@ -74,8 +74,9 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "export-schema": "get-graphql-schema http://localhost:4002 > ./schema.graphql",
-    "relay": "relay-compiler --language=typescript --src=./src --schema=./schema.graphql --artifactDirectory=./src/__generated__"
+    "export-schema": "get-graphql-schema -h Origin=http://localhost:3000 http://localhost:4002 > ./schema.graphql",
+    "relay-compile": "relay-compiler --language=typescript --src=./src --schema=./schema.graphql --artifactDirectory=./src/__generated__",
+    "relay": "yarn export-schema && yarn relay-compile"
   },
   "eslintConfig": {
     "extends": "react-app"
