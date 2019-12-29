@@ -1,5 +1,4 @@
-// @ts-ignore
-import { graphql } from 'babel-plugin-relay/macro';
+import { graphql } from 'react-relay/hooks';
 
 export const PRODUCTS_QUERY = graphql`
 query QueriesProductQuery {

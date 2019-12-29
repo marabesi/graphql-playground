@@ -3,15 +3,13 @@ import {
   Network,
   RecordSource,
   Store,
-  RequestParameters,
-  Variables
 } from 'relay-runtime';
 
 const GRAPHQL_HOST = process.env.GRAPHQL_HOST || '';
 
 function fetchQuery(
-  operation: RequestParameters,
-  variables: Variables,
+  operation: any,
+  variables: any,
 ) {
   return fetch(GRAPHQL_HOST, {
     method: 'POST',
