@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "export-schema": "get-graphql-schema http://localhost:4002 > schema.graphql",
-    "relay-compile": "relay-compiler --src ./src --schema ./schema.graphql",
+    "relay-compile": "relay-compiler --src ./src --schema ./schema.graphql --artifactDirectory=./src/__generated__",
     "relay": "yarn export-schema && yarn relay-compile"
   },
   "eslintConfig": {
