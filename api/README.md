@@ -63,6 +63,7 @@ Creating api_nodejs_1    ... done
 The API exposes a few variables to configure it to, and they are as follows:
 
 | Key | Description |
+|-----|-------------|
 | NODE_PORT | Which port the API should run |
 | MONGO_URI | Valid mongo URI string connection |
 | MONGO_COLLECTION | MongoDb collection to use in the GraphQL server | 
