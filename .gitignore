@@ -2,3 +2,4 @@
 .vscode
 .env
 schema.graphql
+node_modules
